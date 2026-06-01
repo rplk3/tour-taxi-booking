@@ -1,0 +1,388 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Contact Us | Ceylon Journeys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#31312d",
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-secondary-container": "#715300",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#a7c8ff",
+                    "on-surface": "#1c1c18",
+                    "on-primary-container": "#a8e7c5",
+                    "primary-fixed": "#b1f0ce",
+                    "on-tertiary-fixed-variant": "#124782",
+                    "surface-dim": "#dcdad4",
+                    "secondary-container": "#ffc641",
+                    "tertiary-container": "#33609c",
+                    "surface-variant": "#e5e2dc",
+                    "primary": "#0f5238",
+                    "inverse-primary": "#95d4b3",
+                    "primary-container": "#2d6a4f",
+                    "outline-variant": "#bfc9c1",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "surface-tint": "#2c694e",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#d5e3ff",
+                    "surface-container-highest": "#e5e2dc",
+                    "on-tertiary-container": "#c7dbff",
+                    "on-secondary-fixed": "#261a00",
+                    "surface-container": "#f0eee8",
+                    "surface-container-low": "#f6f3ed",
+                    "outline": "#707973",
+                    "background": "#fcf9f3",
+                    "surface-bright": "#fcf9f3",
+                    "surface": "#fcf9f3",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002114",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdfa0",
+                    "surface-container-high": "#ebe8e2",
+                    "on-surface-variant": "#404943",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#144883",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "primary-fixed-dim": "#95d4b3",
+                    "on-tertiary-fixed": "#001c3b",
+                    "secondary-fixed-dim": "#f6be39",
+                    "secondary": "#795900",
+                    "on-background": "#1c1c18"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap-desktop": "120px",
+                    "section-gap-mobile": "64px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3)
+    }
+.golden-glow:hover {
+    box-shadow: 0 0 20px rgba(212, 160, 23, 0.4)
+    }
+.floating-label-group:focus-within label {
+    transform: translatey(-24px) scale(0.85);
+    color: #795900
+    }
+.floating-label-group input:not(:placeholder-shown) + label, .floating-label-group textarea:not(:placeholder-shown) + label {
+    transform: translatey(-24px) scale(0.85)
+    }
+.bg-serendib-texture {
+    background-image: linear-gradient(rgba(252, 249, 243, 0.92), rgba(252, 249, 243, 0.92)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCsKOjQVO0T4gYfHlPE7v2VGMccLx1AccgZMUFMJfTzGn9FcsvgIKCe826vFY6OTyP-mdrZ9m64tY4Db-K24JxgFNmr0oojLBt1zMb6CwdpcT1orkuV9njMKsamE7yyMFxxiNdNT_M9DnzpxjNq18UhdTa5qqzXAuk5EPFmw-bHJ4QGMZFFVCEBI7UbZmPhAA3NTuA1dF2WOhyE9-kic_yZ5TvfcK_w_pGfehIhZJ8YL7YPE_5e1ohk5mtTwm6su_Y5DFDAPZ4z7eU);
+    background-size: cover;
+    background-attachment: fixed
+    }</style>
+</head>
+<body class="bg-serendib-texture font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-full mx-auto">
+<div class="font-display-lg text-headline-md text-primary dark:text-inverse-primary">Ceylon Journeys</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="#">Destinations</a>
+<a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="#">Tours</a>
+<a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="#">Experiences</a>
+<a class="font-body-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-300" href="#">About Us</a>
+<button class="ml-4 bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md uppercase tracking-widest scale-95 active:scale-90 transition-transform">Inquire Now</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap-desktop max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Header Section -->
+<header class="mb-section-gap-mobile md:mb-20 text-center md:text-left max-w-3xl">
+<span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-4 block">Let's Start Planning</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Contact Our Travel Experts</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Whether you're planning a family holiday, honeymoon, adventure tour, or private chauffeur-driven journey, our team is ready to create the perfect Sri Lanka experience for you.
+            </p>
+</header>
+<!-- Two Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Contact Details -->
+<div class="lg:col-span-5 space-y-gutter order-2 lg:order-1">
+<div class="glass-card p-8 md:p-10 rounded-xl shadow-[0_12px_32px_rgba(45,106,79,0.08)]">
+<div class="space-y-8">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">location_on</span> Office Location
+                            </h3>
+<p class="font-body-md text-body-md leading-relaxed">No. 45, Serendib Plaza, Galle Road,<br>Colombo 03, Sri Lanka.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Phone</h3>
+<a class="font-body-md text-body-md hover:text-primary transition-colors" href="tel:+94112345678">+94 11 234 5678</a>
+</div>
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">WhatsApp</h3>
+<a class="font-body-md text-body-md hover:text-primary transition-colors flex items-center gap-1" href="#">Direct Chat <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Email</h3>
+<a class="font-body-md text-body-md hover:text-primary transition-colors" href="mailto:hello@ceylonjourneys.com">hello@ceylonjourneys.com</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-outline-variant">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Working Hours</h3>
+<p class="font-body-md text-body-md">Mon-Sun: 24/7 Service</p>
+</div>
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-secondary mb-2">Service Area</h3>
+<p class="font-body-md text-body-md">Islandwide Coverage</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stylized Illustration/Map -->
+<div class="relative group overflow-hidden rounded-xl h-[400px]">
+<img alt="Map of Sri Lanka" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stylized, artistic overhead map representation of Sri Lanka island, featuring watercolor textures of lush emerald green jungles and golden sandy shorelines. The map is presented in a minimalist editorial style with clean typography markers for Colombo, Kandy, and Galle, set against a premium off-white background with subtle topographic lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc1tTQvtD1_6GklWGZ7z7Xh51X6SaUTQSNgLwawET8I0jhKXh9O0i2HNa4dBDARJHSf3IGHqwwYZxu6OjoiujOubaDM2w8S9DdHy7Q_GBYmsostPzVCFAgrjt-gX-O3QZQdebSGaykLFE4n_AuVDu5JEJp4Fe33SmjtJLoOAgeUH2liMnvbZ3952w56fb7GpMNzQtdJpvCAXPjRY7Xha_C4sAhzcnfpHUGVgKXC8uXwYjG4DCqTas5kAgIt2fr3r8kdpuaakqY70c">
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<div class="bg-white/90 p-4 rounded-lg shadow-lg text-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-1">explore</span>
+<p class="font-label-md text-label-md text-primary uppercase">Explore the Pearl</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Inquiry Form -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0_20px_50px_rgba(45,106,79,0.1)] border border-surface-container-high">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Request Your Free Travel Consultation</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">Share your vision, and we'll craft the itinerary.</p>
+<form class="space-y-8" onsubmit="event.preventDefault(); alert('Inquiry sent successfully!');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="full_name" placeholder=" " type="text">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="full_name">Full Name</label>
+</div>
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="email" placeholder=" " type="email">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="email">Email Address</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="phone" placeholder=" " type="tel">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="phone">Phone / WhatsApp</label>
+</div>
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="country" placeholder=" " type="text">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="country">Country</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="dates" placeholder=" " type="text">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="dates">Travel Dates</label>
+</div>
+<div class="relative floating-label-group">
+<input class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all" id="travelers" placeholder=" " type="number">
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="travelers">Number of Travelers</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest block">Tour Type</label>
+<select class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant py-3 focus:ring-0 focus:border-secondary outline-none font-body-md">
+<option>Custom</option>
+<option>Family</option>
+<option>Honeymoon</option>
+<option>Adventure</option>
+<option>Cultural</option>
+<option>Wildlife</option>
+<option>Beach</option>
+<option>Chauffeur Only</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest block">Preferred Vehicle</label>
+<select class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant py-3 focus:ring-0 focus:border-secondary outline-none font-body-md">
+<option>Not Sure</option>
+<option>Luxury Sedan</option>
+<option>Premium SUV</option>
+<option>Travel Van</option>
+<option>Mini Coach</option>
+</select>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest block">Quick Trip Planner Preferences</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Luxury</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Family</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Nature</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Beaches</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Culture</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Adventure</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Honeymoon</button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md hover:bg-primary-fixed hover:border-primary-fixed transition-colors" type="button">Private Chauffeur</button>
+</div>
+</div>
+<div class="relative floating-label-group">
+<textarea class="peer w-full border-0 border-b-2 border-outline-variant bg-transparent py-3 px-0 focus:ring-0 focus:border-secondary outline-none transition-all resize-none" id="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-0 top-3 font-label-md text-on-surface-variant uppercase tracking-wider transition-all pointer-events-none" for="message">Tell us about your dream trip</label>
+</div>
+<div class="pt-6">
+<button class="w-full bg-secondary text-on-secondary py-5 rounded-lg font-label-md uppercase tracking-[0.2em] golden-glow transition-all active:scale-95">
+                                Get My Free Travel Plan
+                            </button>
+<p class="text-center mt-4 font-label-md text-[12px] uppercase text-on-surface-variant/70 tracking-widest">
+                                Free consultation | No obligation quote | Response within 24 hours
+                            </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Trust Section -->
+<section class="mt-section-gap-desktop text-center">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.3em] mb-12">Trusted by travelers from over 30 countries</p>
+<div class="flex flex-wrap justify-center items-center gap-16 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">award_star</span>
+<span class="font-label-md text-label-md">TripAdvisor 5-Star</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9/5 Google Reviews</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<span class="material-symbols-outlined text-4xl text-primary">verified_user</span>
+<span class="font-label-md text-label-md">Licensed SL Tourism Operator</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface py-section-gap-desktop">
+<div class="max-w-[1440px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-lg text-headline-lg text-primary-fixed mb-8">Ceylon Journeys</div>
+<p class="text-surface-variant font-body-md mb-8"> 2024 Ceylon Journeys. All rights reserved. Curating luxury adventures in Sri Lanka.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Navigation</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Home</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Destinations</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Tours</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Support</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Terms of Service</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Travel Insurance</a></li>
+<li class=""><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Sitemap</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Contact Us</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed">location_on</span>
+<p class="text-surface-variant text-sm">45 Heritage Square, Galle Fort,<br>Sri Lanka</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">call</span>
+<p class="text-surface-variant text-sm">+94 11 234 5678</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">mail</span>
+<p class="text-surface-variant text-sm">concierge@ceylonjourneys.com</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Sticky WhatsApp FAB -->
+<a class="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform md:hidden" href="#">
+<svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.125 1.378 4.773 1.379 5.303 0 9.613-4.31 9.615-9.613.001-2.571-1.002-4.985-2.825-6.808-1.821-1.821-4.237-2.822-6.812-2.822-5.304 0-9.615 4.312-9.618 9.616-.002 1.69.444 3.339 1.291 4.786l-1.074 3.921 4.02-.105z"></path></svg>
+</a>
+<script>
+        // Micro-interaction for Chip Selection
+        document.querySelectorAll('button[type="button"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('bg-primary-fixed');
+                this.classList.toggle('border-primary-fixed');
+            });
+        });
+
+        // Simple parallax on scroll for header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('header');
+            hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+    </script>
+
+
+</body></html>

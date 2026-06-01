@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(252, 249, 243, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .hero-scrim {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#ebe8e2",
+                    "on-tertiary-fixed": "#001c3b",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface-variant": "#e5e2dc",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#33609c",
+                    "surface-bright": "#fcf9f3",
+                    "secondary-fixed": "#ffdfa0",
+                    "surface-container": "#f0eee8",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#124782",
+                    "on-secondary-container": "#715300",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-fixed": "#261a00",
+                    "on-background": "#1c1c18",
+                    "outline": "#707973",
+                    "on-error": "#ffffff",
+                    "tertiary": "#144883",
+                    "surface": "#fcf9f3",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-dim": "#dcdad4",
+                    "on-surface": "#1c1c18",
+                    "inverse-surface": "#31312d",
+                    "primary-fixed": "#b1f0ce",
+                    "primary": "#0f5238",
+                    "on-surface-variant": "#404943",
+                    "primary-fixed-dim": "#95d4b3",
+                    "background": "#fcf9f3",
+                    "outline-variant": "#bfc9c1",
+                    "secondary-fixed-dim": "#f6be39",
+                    "surface-tint": "#2c694e",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#a7c8ff",
+                    "surface-container-low": "#f6f3ed",
+                    "on-tertiary-container": "#c7dbff",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#ffc641",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "tertiary-fixed": "#d5e3ff",
+                    "secondary": "#795900",
+                    "surface-container-highest": "#e5e2dc",
+                    "inverse-primary": "#95d4b3",
+                    "primary-container": "#2d6a4f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "80px",
+                    "section-gap-desktop": "120px",
+                    "section-gap-mobile": "64px",
+                    "base": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- 1. Sticky Nav -->
+<header class="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent" id="top-nav">
+<nav class="flex justify-between items-center px-margin-desktop py-base max-w-[1440px] mx-auto">
+<div class="font-headline-md text-headline-md text-white transition-colors duration-500" id="brand-logo">Ceylon Journeys</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md uppercase tracking-wider text-white border-b-2 border-primary pb-1 transition-colors duration-300 hover:text-secondary" href="#" id="nav-link-1">Destinations</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white/80 transition-colors duration-300 hover:text-secondary" href="#" id="nav-link-2">Tours</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white/80 transition-colors duration-300 hover:text-secondary" href="#" id="nav-link-3">Experiences</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-white/80 transition-colors duration-300 hover:text-secondary" href="#" id="nav-link-4">About Us</a>
+</div>
+<button class="bg-tertiary text-on-tertiary px-6 py-3 rounded-lg font-label-md uppercase tracking-widest hover:bg-tertiary-container transition-all shadow-lg">
+                Get a Free Quote
+            </button>
+</nav>
+</header>
+<!-- 2. Hero Section -->
+<section class="relative h-screen w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Sigiriya" class="w-full h-full object-cover" data-alt="A breathtaking cinematic wide shot of the ancient Sigiriya Rock Fortress in Sri Lanka during a vibrant golden hour sunset. The massive granite column rises majestically from a lush, deep green tropical jungle under a sky painted with strokes of orange and purple. The lighting is dramatic and warm, emphasizing the textures of the stone and the vastness of the landscape in a luxury travel editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWtAR8jySi12tkOO6AeFCpVoCO2qHC7LIxaXO-x6eZfhvja4QN7GVu-k8TFoQLUw3oTQJquPjBB4NB-ehxUZqhxNblxaborhRxYBuBjJpYlC-WSvDdk4F9kqtCvZIj0WMXvcGHuOvFzmICJ1okmxNRQm6jgs7pcR06l0PIFbgT9V1Xl7y150bcV5rBWgXOLHEwXI4GxjFCfvAS3d9TzgxUffhcrreqUDAz5TBtmhc-MVC5Fd-jrMj4TAJvqXa83I6H9ZEsh3rYLBw"/>
+<div class="absolute inset-0 hero-scrim"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-[1440px] mx-auto w-full">
+<div class="max-w-3xl">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary-fixed mb-4">From Ancient Wonders to Golden Beaches</p>
+<h1 class="font-display-lg text-display-lg text-white mb-8">Unveil the Soul of the Resplendent Isle</h1>
+<button class="bg-primary text-white px-10 py-5 rounded-lg font-label-md uppercase tracking-widest hover:scale-105 transition-transform">
+                    Plan My Trip
+                </button>
+</div>
+</div>
+<!-- Floating Thumbnails -->
+<div class="absolute bottom-12 right-margin-desktop z-20 hidden lg:flex gap-6 items-end">
+<div class="w-48 h-64 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="A serene close-up of a traditional Sri Lankan stilt fisherman at dawn, silhouetted against a soft turquoise Indian Ocean. The lighting is ethereal and misty, capturing the peaceful essence of the coastline with a high-end magazine aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKM2oJBTGF7G1IQPyonQSSKoLgyE8VwX5_C66EltY3Xxi3mOzlbV1VRFgpZiTw-xBH-GXlW9ZflO5RBSlAyvMx9Sft_FusYn-hgwOeb0f4lwWXM_7Offr6ZfAbNYyE_XCD49bBFcMykIXPm6-dp79vFdiLiuw4DZwPith3iZ_OaRbYAQEfp5ZX277P7hTw2VedV7P7oe5vb00Rla2uFB_Zs3m1OXL7uFupf0iJv4renlVd9pjecYP-sZoUUGDz5RDqHTz7rX0_rU"/>
+</div>
+<div class="w-56 h-72 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform rotate-2 translate-y-4 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="The iconic Nine Arch Bridge in Ella, surrounded by dense emerald tea plantations and misty mountains. A vintage blue train is captured crossing the bridge, creating a sense of timeless adventure and luxury exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNViPliZgMATp8rJwfOfe5IbM1qX0v0GifmydP8iYBCnIu-ZkCL815eORxjyDnpji9vt7wpv01XEeT4xOyVGfUKekMFDzsUU25irJumcPci176H9SkaJe_iVeVM94PybczQdFuMcPYXNjbBNygV3w2leoL5C7r2uE_HFdtgfqRTpGfvy9XXF5B6trvU25IrzYFC9drxMHMs0Y5m4lvl8oWzQMwcXxWIZk8PG0eKBs2a41NSM7a2ddLmas2esFbs0GODyAT1zGc9i8"/>
+</div>
+<div class="w-48 h-64 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="An overhead cinematic view of a luxury infinity pool overlooking the rolling hills of the Sri Lankan central highlands. The water reflects the deep blue of the sky, framed by architectural minimalism and lush tropical palms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI8lQMaZHzZB2fbkE3R7GqbhHWcKRuA0SK5xZiykQ_JMOEC7TtLLokTE_NgmsKUZWynxbgt7jZZoQ1Q3okYkKQAAKe-Ly2f61bZ0WDthSVK5-95YWz7GEsaYsNUBWjGECuBGwA-bxEg6S7OyJvDzsGFfnMdtv3wHsZ19LHS35ckniA4ajplTyl2p0IO0vE-7CrSJd07qexUpXLNid90oy8hUMwTvsBzUyonL9MVOCssmEcJBqZyW6ZL6_ortWsbjVpyJh0U2QAOv0"/>
+</div>
+</div>
+</section>
+<!-- 3. About Section -->
+<section class="py-section-gap-desktop px-margin-desktop max-w-[1440px] mx-auto grid md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 relative">
+<div class="rounded-xl overflow-hidden shadow-xl">
+<img class="w-full h-[600px] object-cover" data-alt="A sophisticated portrait of a Sri Lankan travel curator standing in a colonial-style heritage bungalow veranda. Soft natural light filters through wooden shutters, illuminating authentic décor and lush garden views in the background, evoking a sense of heritage and professional hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvanpekF-x-33aj3PdV0wtOksNC3PtFlLpJwrV1Sv-VL3frjNmSWFjOAs5UCErrfbzInYeWg9iiGTn5DzE2wzNY2a6aweMBhnU91-tT1BlysJCInxKhxVNr7BLwBZeQ44lu52HuaWQKDIg-WcEgczboMbZbVw6VOSoXzBHWjGNGc63HabOhoOsgvOMHIgG8ePCWSgSKnizliNw9e1oQSK90AoPrcIhrQhsDQ6GDg0zRreFmXQHVF2jRlY0X50c8MnuI_A8eTuwllg"/>
+</div>
+<!-- Circular Stamp -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary rounded-full flex items-center justify-center text-center p-4 shadow-2xl border-4 border-surface rotate-12">
+<p class="font-label-md text-white uppercase leading-tight">Founded<br/><span class="text-2xl font-bold">2013</span><br/>Experience</p>
+</div>
+</div>
+<div class="md:col-span-6 pl-0 md:pl-12 mt-12 md:mt-0">
+<span class="inline-block px-3 py-1 bg-primary-fixed text-primary font-label-md uppercase tracking-wider mb-6">Our Story</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Curating Extraordinary Journeys Since 2013</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">We don't just book trips; we craft personal narratives. Born from a passion for the hidden corners of Sri Lanka, Ceylon Journeys bridge the gap between authentic local immersion and uncompromising luxury.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">explore</span>
+</div>
+<h4 class="font-bold text-lg">Expert Guidance</h4>
+<p class="text-on-surface-variant text-sm">Deep local knowledge and curated routes that avoid the crowds.</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<h4 class="font-bold text-lg">Elite Support</h4>
+<p class="text-on-surface-variant text-sm">Concierge-level assistance available 24/7 during your journey.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Why Choose Us -->
+<section class="bg-surface-container-low py-section-gap-desktop px-margin-desktop">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">The Ceylon Journeys Standard</h2>
+<div class="h-1 w-24 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Cards -->
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">history_edu</span>
+<h3 class="font-headline-md text-2xl mb-4">10+ Years Excellence</h3>
+<p class="text-on-surface-variant">A decade of perfecting the art of Sri Lankan hospitality and logistics.</p>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">verified</span>
+<h3 class="font-headline-md text-2xl mb-4">Fully Licensed</h3>
+<p class="text-on-surface-variant">Accredited by the Sri Lanka Tourism Development Authority (SLTDA).</p>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">auto_fix_high</span>
+<h3 class="font-headline-md text-2xl mb-4">Customized Tours</h3>
+<p class="text-on-surface-variant">No templates. Every itinerary is built from scratch around your desires.</p>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">record_voice_over</span>
+<h3 class="font-headline-md text-2xl mb-4">English Guides</h3>
+<p class="text-on-surface-variant">Expert storytellers fluent in English and deep historical context.</p>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">alarm</span>
+<h3 class="font-headline-md text-2xl mb-4">24/7 Assistance</h3>
+<p class="text-on-surface-variant">Always a phone call away for any requests or adjustments on the go.</p>
+</div>
+<div class="bg-surface p-10 rounded-xl shadow-sm hover:-translate-y-2 transition-all duration-300 border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">business_center</span>
+<h3 class="font-headline-md text-2xl mb-4">Professionalism</h3>
+<p class="text-on-surface-variant">Elite vehicle fleet and meticulously vetted hotel partners.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Featured Packages -->
+<section class="py-section-gap-desktop px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="font-label-md text-primary uppercase tracking-widest mb-2 block">Top Destination</span>
+<h2 class="font-headline-lg text-headline-lg">Signature Journeys</h2>
+</div>
+<a class="text-primary font-bold border-b-2 border-primary hover:text-secondary hover:border-secondary transition-colors" href="#">View All Packages</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Package 1 -->
+<div class="group cursor-pointer">
+<div class="relative h-[450px] overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious view of a boutique hotel terrace overlooking the Kandy city hills. The setting is intimate with fine linen dining, surrounded by mist-covered tropical greenery in a sophisticated editorial travel photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBapGOCIs4XNarssnn3HciSYg62IfKRnVyPuMbhmKHlKyu68XeCvM9_N5rXADVTwj2qkP9b8k0pzOVNYVd8Jf-08aiVlkcdFq_VFbZwWs2M6-_EdC4MD6lbSjmJwCO69Oo1siJzlPn0jcnrjwOfiN-ai5QGhWXl95fJJ_t2jkMXP4T1Uw-Bt11-X4-b9PqDwf9b2RkRWfr8MTtmrztw5cySpwc0kYxJSKf-mJ0jtzIjeB6pCBg7YP6cfnFZiAR90xlBAcT2dRxMQU0"/>
+<div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[12px] font-bold uppercase tracking-tighter">7 Days</div>
+</div>
+<h3 class="font-headline-md text-xl mb-2">Hill Country Romance</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Experience the mist-veiled tea estates of Nuwara Eliya and the spiritual heart of Kandy.</p>
+<button class="w-full py-3 border border-primary text-primary font-label-md uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+<!-- Package 2 -->
+<div class="group cursor-pointer">
+<div class="relative h-[450px] overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wild leopard resting on a granite rock in Yala National Park. The sun is setting, casting a warm golden glow over the arid landscape. High-end wildlife photography capturing the raw beauty of Sri Lankan nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCDWi1Y4G6Jo_o78Mr02CWjsCWF71NK75JApxk592EZW76nG_9UV5hCvH6D20Ra_s-fDlJYIwuqba0PQSIZjm7F3LtIA-wd7tMgQJM8AO3TajTCmz1Ck8uYS6dfdd4WSpMGaE2rEXrqMT23Prg2UwjwjzMQ92iLF5VT07a4CVorBk-bRayIfU-m-F6jnMUddvMTkx7Z_mfeUXy1HD-y3qLOms9SNsV62ThPsxN_5Kwa3CVC9LnkJDw3kLXp-m4laQ8TZJrqnN7ZL0"/>
+<div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[12px] font-bold uppercase tracking-tighter">10 Days</div>
+</div>
+<h3 class="font-headline-md text-xl mb-2">Wild Sri Lanka Safari</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Venture into the heart of Yala and Wilpattu for leopard sightings and wild elephants.</p>
+<button class="w-full py-3 border border-primary text-primary font-label-md uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+<!-- Package 3 -->
+<div class="group cursor-pointer">
+<div class="relative h-[450px] overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The pristine white-sand beaches of Mirissa with swaying coconut palms and crystal clear turquoise water. The lighting is bright and tropical, conveying a high-end luxury resort atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8A0SV3DZ6-31zO9HFjz6aesPB3B5fdGKAQaQe26LUNNHweHJSmpaInfiISFtaXoWeanxlzIH7RqzP6_UyPjy70hUhUdjFlnf7VwCPJvf1NAZiL2Ej3OZPJSwazKEfFQlfIae5-R0pi_LYQ3bMDyVGHmK8y5akOb40i6t6-E9tcuivpjLbbiJiNBpw7UhkpStdSpVMEBq3O_iV9w7BN8yJGPWPqMcg4IvfrVMi2_BmBh7PXe7sK9Iuxpjg651rdVdAgNcIHBOl8qQ"/>
+<div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[12px] font-bold uppercase tracking-tighter">5 Days</div>
+</div>
+<h3 class="font-headline-md text-xl mb-2">Southern Coastal Escape</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Golden sands, colonial architecture in Galle, and whale watching in Mirissa.</p>
+<button class="w-full py-3 border border-primary text-primary font-label-md uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+<!-- Package 4 -->
+<div class="group cursor-pointer">
+<div class="relative h-[450px] overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The grand entrance of an ancient Buddhist temple with intricate stone carvings and monks in saffron robes. The atmosphere is serene and spiritual, captured in a respectful editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvHa75MGGPVAmjvZFSjLCah-YX3IXgYIbMgHJpJiQrDzqW1f-O9PgGYy6nE4RiMj3VvvOXR5o4vsm0d21yfSy6LIxUd2w9LxHQJ15OfJCKcpcm9F4r0Xp1tzPmWSzwssM16icQHH2IfW_SjqC2W4NU_ZsbTiwFsxgMjRtm71e56fbw0gXyOScSDYc8X0EB5HcKw4Ad8BjH5Hzrmge4hiOykAfTE003K5oGGgQ9np3R_SQNu6NRu4K5QuelQpFSjt3JmK29LFMGKSo"/>
+<div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[12px] font-bold uppercase tracking-tighter">12 Days</div>
+</div>
+<h3 class="font-headline-md text-xl mb-2">Cultural Triangle Grandeur</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">An in-depth journey through Anuradhapura, Polonnaruwa, and Sigiriya’s legacy.</p>
+<button class="w-full py-3 border border-primary text-primary font-label-md uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+</div>
+</div>
+</section>
+<!-- 6. Destination Showcase -->
+<section class="bg-inverse-surface py-section-gap-desktop overflow-hidden">
+<div class="px-margin-desktop max-w-[1440px] mx-auto mb-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="max-w-2xl text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4">Discover the Iconic Regions</h2>
+<p class="text-surface-variant font-body-lg">Every province tells a different story. Choose your chapter.</p>
+</div>
+<button class="bg-tertiary text-white px-8 py-4 rounded-lg font-label-md uppercase tracking-widest hover:bg-tertiary-container transition-all">Explore Tours</button>
+</div>
+<div class="flex gap-4 px-margin-desktop overflow-x-auto pb-8 snap-x no-scrollbar">
+<!-- Showcase Card 1 -->
+<div class="relative min-w-[80vw] md:min-w-[45%] h-[600px] rounded-2xl overflow-hidden snap-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="An atmospheric sunset view over the lighthouse at Galle Fort. The colonial ramparts are silhouetted against a dramatic fiery sky, with the Indian Ocean crashing gently against the old stone walls. Premium cinematic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebvBFAO249o-1_ZR9_lOJv0qkSiLIPmUOw9zbL9pX3TKi76YKrOZ5z3jT8Z4KBI5sMfIOlYWpn10V-_VOztt-q2v-Df1TrIYwxFV-3srg27aoMvd80Jr8QmPozAZgxrUmp2rBRFFphvXvEIoGoTclTZOXsjPrFvGFOMv65GJxy60LHG03hYgPWY4WAMYbn688gwwQC52YXDmwCfRXs470b3hMZaBH7RQcUhhRCI8ZNrftTae2NZOrH-hobifEa2mnkAy-EDkjECU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline-lg text-white text-4xl mb-2">Galle</h3>
+<p class="text-white/80 font-body-md">Colonial Heritage &amp; Coastal Charm</p>
+</div>
+</div>
+<!-- Showcase Card 2 -->
+<div class="relative min-w-[80vw] md:min-w-[45%] h-[600px] rounded-2xl overflow-hidden snap-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="The Temple of the Tooth Relic in Kandy reflected in the calm waters of Kandy Lake at twilight. The golden roof of the temple glows under soft streetlights, surrounded by dark hills and tropical flora." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6IsVxb4A90Mj-dsou_FE9elLdM99pqREK4HZhphux4AjO3vJB5n8u9SJdB48yFpZpZTbhfy3cI_fKxZ51dbylWD50VLBfYACaVzXIAgzGUba6WNuDQ-mD4djOdJ9pMADVeqlAAQo3NAimgEcnGWHqvTuCQRJ2eSrvmG-Lz3O8x6rAHTMsldRF39YuYEYzDJGQmMFlYIS_Su2mhcG42KVZm1akN0T82BTEz5dXvSEQ9jpY2umJPdScbxgw94PKiLS-vF5ora5AkXE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline-lg text-white text-4xl mb-2">Kandy</h3>
+<p class="text-white/80 font-body-md">The Last Royal Kingdom</p>
+</div>
+</div>
+<!-- Showcase Card 3 -->
+<div class="relative min-w-[80vw] md:min-w-[45%] h-[600px] rounded-2xl overflow-hidden snap-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Rushing white water rapids in Kitulgala surrounded by dense, primeval rainforest. The lighting is crisp, highlighting the spray of the water and the deep shadows of the jungle canopy, conveying adventure and raw nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFnVXXZ_-TaUO0vFRv1mKkZAWDdymmnBf3MPtvLxCx4uWkTGccqAVASq2cjNW2Gl21kmFf-bVD3aULSM7L9iJtk4gPZFV-hGjqJ-t5QsoxhfI5OXyQZXOb5uC-cFyT2hHifPgC-2MC8_1LilkLZSDvMUgi1RZhcAK2En7tlsq4tfqUqaO9unw1u2cWQOQYol8tD06XE09vaBXTIeiqYRtpt-0Kx8-t89JzIzMc4xskcGA-MH_Kku9juPnWNP70VUQ_ixQpVWBDPko"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline-lg text-white text-4xl mb-2">Kitulgala</h3>
+<p class="text-white/80 font-body-md">The Adventure Capital</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Hotel Partners -->
+<section class="py-16 bg-surface border-y border-outline-variant/20 overflow-hidden">
+<div class="animate-marquee">
+<div class="flex items-center gap-24 px-12 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer">
+<img alt="Aman" class="h-12 w-auto" data-alt="A minimalist professional logo for a high-end luxury resort chain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5ugS763lBsfrmNTseERSol-mDACNvtfpCaEbZrJ6DMpVhGAgniWd0nf1vrNRdlazjuN4XIyVIf0Q2Z2HbrlMDG6qBOokEMXzF9w0rvXqYw016xmIInEXJ1HgSeaWlhwNh9KskF-uOmNrUZkSDJ-BqGIcKVCpcQKp_1nkJGljUA9uDEXU__BN1GWjFIxLurOWUdhkT3e2czpmPLYjTf_j9vzLMtM17AFqfdLrCwau7U2OAwyDAV6eXlp5I1VQu6KU9BZZ7hJRrsOg"/>
+<img alt="Resplendent Ceylon" class="h-14 w-auto" data-alt="A sophisticated corporate logo for a premium hospitality group in Sri Lanka." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBthV9ZYkbX1OAKUUKpcJ1qEU0av5XUzVLFCvhE2D4IXpZo65Dq2brlSoajaMwir8PZDCQwrtlgioQ2YZIkKFDAeW-xVpMDuQGHwmp4bAtPVTsHn4Y5kaAK7nLxYh0bROU1-yLmWa7UPdaOLVGNfSU3CXSXxa5VEOHJJU9upDDtsm4EgLiarZESmHjGgJhAaXW9A_4WFxMtXXpHc4ztvZjgTt__jmUWDfLXaZ0jmoa0a2b1NRs9oZbPf-69CDAuPSW-RAcWQu_HUJs"/>
+<img alt="Jetwing" class="h-12 w-auto" data-alt="A clean, modern logo for a sustainable luxury hotel brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_lwvSrhPyqcH3iLEf8TMODvSC20qXcVUuz2KiIR88gt52HnTpUBYf1k3uEEtkymPYIywxbfPDVE8vGd5Wof_cx22eE5mWTetH_soojXuXZY7bfMHtLzpf7_vjVs_3ayvOzl2e5uZwMSG8SJ_TlPLGu8vH8NyD_xe3BE16gs5dceAYtft4jYDmzb7G8yGz3HP5AqwPGd-e8devh8Oj3_dNuaqia3rvHbumJkQmd8jvPCIM-8RJXAQzPXAecvgqJBTbNCX0w9_l4K4"/>
+<img alt="Shangri-La" class="h-10 w-auto" data-alt="An elegant, world-renowned luxury hotel brand logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsuyD8U8g1AdbME91xUlGRO6xuLLYr0YtaSh-bpxmYSCH7QjJO0o4XkZAszOy06VgahXGRRg2mnqWfVAC8uB2f6rY3hzQEnmmlOepUlUjd36dx8HAnX1pQOrOzwZZTCB85YJ54KTjT8FigAqBT_h5Z0fzAynGjipgRX1wUeujD_3zH_Ljy9G_vyhoeeOZt8GXkllP4n3VHELPZaUgNtsIb7Fez2-6mp9ETIPbDJWq4F_tT98MccvPtZALJEVcugmUFlT1KxaOv5o8"/>
+<img alt="Anantara" class="h-12 w-auto" data-alt="A graceful and refined logo for a global luxury resort company." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvHIB1nPOHJ0CyzC0uqvnneM0G-mNQ5yp8Rz50TpC5kZH67fhJLrmfp8UJeLKhhexs8jaSRbriv9RnVHfuD24Z9oCBWBMYcI8Eqsr3zW_znRgNB9jYClFK2xcWyBOgVEM5j7suVeZ1wmZ1n-FSxLSSuezTf6MZCfEdNdCPus4QQDMWrRMnDma5PJwaPaIa9qC8dP9caGbn3jKj6ZO0-JK_WKZRXfuhIBq1AqSvns2fAhIx7ZLlzdj8EN6GUg0iuB0kJM5XJ7Gkrp8"/>
+<img alt="Dilmah" class="h-12 w-auto" data-alt="A prestigious logo for a legendary tea brand and hospitality partner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ivtExgQEPe-8_7LCN3Osy_0gGNO-HAO4TJK-cSUHyVsAP77qlMxc77hBKEMj6cGVfyr6vCGHoIJWdcQ2l5TE7wdXS8Ip_aRBEebp6j0Dc0ub9KrMH7wuys5nUXpQaBG--4Wwegzt1dygJthG6gMtKEKfQjnNIPx-PcWMezfnLmMSArqL7dO25N0ZdCyDFPMeN3xDvMqHGzcb1aWV_RKt6QA20ua1kvGRtNjUjNBND_xct9bPTBw-8x3BEQYyG0V_bLzOBN1kNqo"/>
+</div>
+<!-- Repeated for seamless loop -->
+<div class="flex items-center gap-24 px-12 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer">
+<img alt="Aman" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ConYZJSnmu1xGkSUhJB3D5lbAR0PCojrFYSTOzwPDxc4lwVol-cjLUQfi16_igWT9hZhT9rDdTWvRbC31eMGn1zQP-CvT0uO6gQ4ZibmSP5rIrwHNGcN5UE95FSsro1PYMZxOLInQElPHb0Sh8WpLqJmZ_KFwri3HzsWbwGeAfF-G8zq1ZJ440kf0IIYayQak_0P7Y6ry7N79xtqAZP7T-gjWl8K4LGhFpno4uTZv8dW_02QAvvEPLBoTTKAJtY9KRSOQKrQmfY"/>
+<img alt="Resplendent Ceylon" class="h-14 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChKZrXHQsNE_63YM__t3vaDl6Vglh_1PHWwlYjwX3_Z9etknIXKoq30olESaEMykFgO0lWtpr1GYMtkxoO2DPpLNh2HE2nyyinI-EvdILfqizuRd-VwyD4vD_EJDP9BJikQMeqjmKAlQc783nXliiO2Eiki_88mWqIfyLT9e0NBgPVyY3lgewOU3GYdYkF3wxrKUsKl_EyqeSYKz-EhbObvAYCw9t-309hVIUErcErHUXParSN_kugHl4XZgJegQJvEfBPXXKjhTY"/>
+<img alt="Jetwing" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4wDoTu5Q6p2TMn3KVI9YaWB84AsGgETEoMmSVbufniV6Zay291-NFGFmzyNNmSqum5j2j9Kg83OAREWHubTxP0shDJC3BEGwI6VVCc7sI1SYBkpFbd1zODD7AsoFnghPyauu4CS4njf1CuMuiQs7LfJZoySh-vqsliyy_V0S2nnr6QNozF0yoDT2Z4T0qPn8h9e0T8QOzveXS2lvgQgyFOKZYCzZB_7tEpi3cq8gw0Wj3EseqaT_dvwJX3_nPePgjwpOI_Bn9LvA"/>
+<img alt="Shangri-La" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMWLUXQMS8QHE6NOmuzeq9t0x4Noz7QbeMu8mYq8ludVtW0J6cBuPYQMH_A32NlqaUnn9oNYEcZ9P6Ln-DnrEP9Ixfxlf3ANd37mzUJ_L-86fHehamrKzjeXyiCJ46RzUWMgzaqfEvftJ9bpatjKFsZmvCjSLN5QbyTGPHx7We5LgmsqqwD1-fjKx0wolQfWoBKUVL4xBKEuE3D-oK1q4xfXwtJzpstELUtJORJJCHCbLDUbcVBRbXiMmL-Nq8boDN46TPF5sj154"/>
+<img alt="Anantara" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ICFu4eS-LzU1kOHlu0U5jvPghMAaiKcG2pkS2XF4LeaLvXFYaROBsW3_8Vg1LkoqZfSjHafJvhM_WyO-RD_k9356Njkk-2yI9EtXTta1Ia3Aj7XvvueVn8zX9k5LFtEb7OlZIW5uxqapsCLOa9MUET-bAcMAUDAlEq3GHRSUr4Fg_g0nXqy8C-5ZkX0aL5z6vi1knmhk37atTlYR38aBae5NcPpOwLJHPZWxXkZHKIac5UBonwTagGypvleixtH3J0H1mtHlcGM"/>
+<img alt="Dilmah" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5hA0CHDpa9a3hNjEMO6ggomNYmYn4uUN-YJ0WVS6JDXpCkbXM1Y0N-fNgYDjxCg6xTerdG9fA_x4rqdfcj8pGDkMt4P6V_23_otbpfedse6mZL96b_gINUsZif8yeEdgiUFy86lUyXrBq5jaqJu8guhSRq4fyu_KL2LPcPW-FZQwf3uablz1zAuTlxlcfnAHnuVAO6FzlFp9gkNxP-Vcc_hWi9z8ranyFRMNgtYi2qJV-BSWQw4oTCKflEUXte6E-s7AP_zp9ePw"/>
+</div>
+</div>
+</section>
+<!-- 8. Testimonials -->
+<section class="bg-surface-container-low py-section-gap-desktop px-margin-desktop overflow-hidden">
+<div class="max-w-[1440px] mx-auto grid lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-4">
+<div class="flex items-center gap-3 mb-6">
+<img class="h-8 w-auto" data-alt="TripAdvisor official badge with green owl logo and 5-star rating icon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxXoNk6tLyoomT35Oj0wWCcoi2UyNQUQYtUkPrlUDuYZpx2GIQCF2iihkZG0xabAiboDblcsdM_11YoeQ0f8MloTd8Vy141LBxL5ln1ICggQRvaFQQmUMTrX9J8jkKxUHTGNtCEc0ICsboCXukHvjCOxmDG4bT8nJNcrvAIXHTq-xOLf84LByPkUoHwXXLWI7TnQ6WFZibMkwRznqtTTDafT7WS954vScVoXpP59gEgO-JZTbpyF3tE4JCXx3wJiQbTvkr9GOHCLY"/>
+<span class="font-bold text-lg">Rated 5.0 on TripAdvisor</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-6">Stories from Our Travelers</h2>
+<p class="text-on-surface-variant font-body-lg mb-8">We pride ourselves on creating life-changing memories, one bespoke tour at a time.</p>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-8">
+<div class="flex gap-8 overflow-hidden">
+<div class="min-w-[400px] bg-surface p-10 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-6">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic">"A truly flawless experience. From the moment we landed in Colombo to our final sunset in Galle, everything was handled with such grace and professionalism. The personal touches made all the difference."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Sarah J." class="w-full h-full object-cover" data-alt="A portrait of a smiling woman in her 40s, looking relaxed and elegant, in a soft-focus garden setting. High-quality lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDrolGMD17txRDyZ4mhpTY_e6fU5RuID3F2jio-g1t8awTeKhYSL9bJXa-wIlJDjRGh_yn2oopBbsPoqERTVIfrFlRRWhQ2VyrhLJlneOvD8-Opndy5cIkXoIiEcsgfF-hQoREUDSVWLQ0E_k7lOBVjiS6iALz7NIJ_dst6ohfeZYtPddTpDuQLsHR02_wFyGhRbEuSfXgIHzv9iPHLgr_34FG5PyqFzIWDZx_0T1HXim6WSLGcyvLYrxnTxNkx7EV4u6Qd2Tw5t8"/>
+</div>
+<div>
+<h5 class="font-bold">Sarah Jenkins</h5>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">London, UK</p>
+</div>
+</div>
+</div>
+<div class="min-w-[400px] bg-surface p-10 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-6 opacity-60">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic">"Our guide, Nuwan, was incredible. His knowledge of the local wildlife and history was profound. We saw parts of the island we would have never found on our own."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Mark T." class="w-full h-full object-cover" data-alt="A portrait of a man in his 50s with a warm smile, wearing a casual linen shirt, outdoors in a tropical setting. Professional travel testimonial photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe2PKYtFSRPqXTTd4RkKnCQ9Ddw31_fZSPfsC85dTIRPoXWQsEcfi7A2OW8yGbH_KR1y3An_OFvLLty2BTwSrwvI6KfHKXTDH9FTH3pSLA0L04-1Ov4aXlN_3edJzdpbbqNC565ImMzzddT-eu-1H1x8z3D1Cmh3s_vLY0RFTBPtfLp-UVsyWbTr1g13DmCsCvDdv-kqVqilXMp2U9fDF_ng_QUx3YcDYXjda8qt1IdLW8mFoaYHunMb1fq-t-_sKAk2PQW0LMcjM"/>
+</div>
+<div>
+<h5 class="font-bold">Mark Thornton</h5>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Sydney, Australia</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. CTA Banner -->
+<section class="px-margin-desktop py-24">
+<div class="max-w-[1440px] mx-auto bg-primary rounded-[2rem] overflow-hidden relative">
+<!-- Subtle Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');"></div>
+<div class="relative z-10 p-16 md:p-24 text-center max-w-4xl mx-auto">
+<h2 class="font-headline-lg text-white mb-8">Ready to Design Your Perfect Sri Lanka Holiday?</h2>
+<p class="text-primary-fixed font-body-lg mb-12">Connect with our luxury travel curators for a personalized consultation and a bespoke itinerary designed around your travel style.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-secondary text-on-secondary px-12 py-5 rounded-lg font-label-md uppercase tracking-widest hover:bg-secondary-container transition-all shadow-xl">
+                        Plan My Custom Tour
+                    </button>
+<button class="border-2 border-white text-white px-12 py-5 rounded-lg font-label-md uppercase tracking-widest hover:bg-white hover:text-primary transition-all">
+                        Call Our Experts
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. Press Logos -->
+<section class="py-12 bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<p class="text-center font-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-12">As Seen In</p>
+<div class="flex flex-wrap justify-center items-center gap-16 opacity-40">
+<img alt="Conde Nast Traveler" class="h-6 w-auto" data-alt="Conde Nast Traveler editorial logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8LIfMtf8DjjehOd0fzsg0xpfrYODWcnMlTxusvLqpnOX516eNkdrxaudjRE4ybfqN6ZQ3K11d0CXfq7RSJmtnFFT9vrrpNlqZVdZLU6Zl0ri042y8CnhVYvBN1zaxIAhfpuMF5EWnD9x-8OD6nQ37wKs4ZXs-d-Ph_PFpXP3nbzbNOuqt7LA_vXwTFJju6qaXpCrrON9eQGVDbEic4u2towy29yL2eWuUb2kYMBGcIumOPPs4_knIJ6Ni5OgEknLdOuzc_nl2EuI"/>
+<img alt="Lonely Planet" class="h-8 w-auto" data-alt="Lonely Planet travel media logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrlHoHCkSKo6Gxj67_TlzeMLGT7i5akWthrp1AW4jde8DnYcZ5xdrD4wz1NnK89ZvZde5AJhg-6Ube303PdmWBagNrFSC8i_JP-XWnC9RHzoE7jWLAsGd0A0s7oievrkvNKi6lt8MujD5lk_iUXWkgQavdUvZEDPsfxMogG_RcTPzn3BgQFhNEDSIF9jBuSVftJxTNt1K0lNJuoW5fq0OT664YC4LQOQX9OznvsDMNziYBjdhwiSyXx0SIgiGbHvSEtClZD-3Fr7o"/>
+<img alt="Travel + Leisure" class="h-6 w-auto" data-alt="Travel and Leisure magazine logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMt6MObQhPtkg3ZKRqAHIwHEwejtdpM92mb0AWGnCXrhpvC5H88lqT-L-TnuqOSEbred_wIFItbeXpNsSm1DJKyKd9SYrD-oJNoVCzdwrZGcEvFoxswxjmaJ_KCBAIZZOVYQHmU7XF6fmRYe5ihYYzMz73XYzhEmh-FsrivrLjT7bhMstegOuasWMNCJAJxFg3V5EkYATsYr8Yt0iFERCGuhQPeSn54efd9J4QKTWy6UAGtc0muPEyiI1zaSEWwlXcjQ7uEktwhog"/>
+<img alt="The New York Times" class="h-5 w-auto" data-alt="The New York Times newspaper logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7_vf3iW6j62IjpQXIZALJDwnqKlSQwjW4dStMixHzDnuvMXvXtbOdLHGDuHXBq2j4-RaCh0lnxo6AO1hI2vJRGjd-6jWx2F92jjh-MjczMZpDkyWKr3-b70mTsQPJ4bFnRw5XGpmBwPqK03gOFxSD20MguJiO_5DHEO-QHM4HTsNjllPYrk4l5N_zNcd3BFirwK0MCbYDiKpP36r9EZJXz0Ztaj9K0Wtm83jAvNd7Ft3A7AcxBuUMbHxt5KOjUbgwtcZIu8X2p0"/>
+<img alt="National Geographic" class="h-8 w-auto" data-alt="National Geographic iconic yellow frame and text logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCywOgvK0lRHQttGrn_xLCto6NO7w1WMqHJ-8xbj7D4rErtbepTa77dry_CJHSRd6LwtTkrGzEYNsDSQ6tr3LwdI8g57gIui8BE8u54L042bd0-n0LISzQqhSDYmP1_6Gq_eHbRai4Ye2pqbSagQfw9J5LKNOdxF7cszTAtE1GtLBn-QBq6BWQYNTBQBQow2Yfd4qNLug6z0ObCUlkXxSBkqjCaSbnwAgO6mZ8oGoFvrmmhjeuSfvfJP8jRoQyTzAc1tIDuYxW8h7A"/>
+</div>
+</div>
+</section>
+<!-- 11. Footer -->
+<footer class="bg-inverse-surface py-section-gap-desktop">
+<div class="max-w-[1440px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-lg text-headline-lg text-primary-fixed mb-8">Ceylon Journeys</div>
+<p class="text-surface-variant font-body-md mb-8">© 2024 Ceylon Journeys. All rights reserved. Curating luxury adventures in Sri Lanka.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-white hover:border-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Home</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Destinations</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Tours</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Travel Insurance</a></li>
+<li><a class="text-surface-variant font-body-md hover:text-primary-fixed underline transition-all" href="#">Sitemap</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest mb-8">Contact Us</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-fixed">location_on</span>
+<p class="text-surface-variant text-sm">45 Heritage Square, Galle Fort,<br/>Sri Lanka</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">call</span>
+<p class="text-surface-variant text-sm">+94 11 234 5678</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">mail</span>
+<p class="text-surface-variant text-sm">concierge@ceylonjourneys.com</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('top-nav');
+            const logo = document.getElementById('brand-logo');
+            const links = [
+                document.getElementById('nav-link-1'),
+                document.getElementById('nav-link-2'),
+                document.getElementById('nav-link-3'),
+                document.getElementById('nav-link-4')
+            ];
+
+            if (window.scrollY > 100) {
+                nav.classList.remove('bg-transparent');
+                nav.classList.add('bg-surface/90', 'backdrop-blur-md', 'shadow-sm');
+                logo.classList.remove('text-white');
+                logo.classList.add('text-primary');
+                links.forEach(link => {
+                    link.classList.remove('text-white', 'text-white/80');
+                    if (link.classList.contains('border-b-2')) {
+                        link.classList.add('text-primary');
+                    } else {
+                        link.classList.add('text-on-surface-variant');
+                    }
+                });
+            } else {
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-surface/90', 'backdrop-blur-md', 'shadow-sm');
+                logo.classList.add('text-white');
+                logo.classList.remove('text-primary');
+                links.forEach(link => {
+                    if (link.classList.contains('border-b-2')) {
+                        link.classList.add('text-white');
+                    } else {
+                        link.classList.add('text-white/80');
+                    }
+                    link.classList.remove('text-primary', 'text-on-surface-variant');
+                });
+            }
+        });
+    </script>
+</body></html>

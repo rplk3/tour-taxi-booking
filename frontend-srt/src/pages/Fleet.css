@@ -1,0 +1,94 @@
+.fleet-hero {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fleet-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.fleet-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fleet-section {
+  padding: var(--spacing-section-gap-desktop) var(--spacing-margin-desktop);
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-gutter);
+}
+
+@media (min-width: 768px) {
+  .fleet-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.fleet-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(191, 201, 193, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fleet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.fleet-card-img {
+  height: 250px;
+  overflow: hidden;
+}
+
+.fleet-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fleet-card:hover .fleet-card-img img {
+  transform: scale(1.05);
+}
+
+.fleet-card-content {
+  padding: 32px;
+}
+
+.fleet-card-content h3 {
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.capacity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.fleet-card-content p {
+  color: var(--color-on-surface-variant);
+  margin-bottom: 24px;
+}
+
+.fleet-card-content button {
+  width: 100%;
+}

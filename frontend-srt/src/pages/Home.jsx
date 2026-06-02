@@ -20,12 +20,26 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash === '#about') {
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+          window.scrollTo({
+            top: aboutSection.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       <Header />
 
       {/* 1. Hero Section */}
-      <section className="about-hero-section">
+      <section id="home" className="about-hero-section">
         <div className="about-hero-bg">
           <video 
             className="about-hero-video"
@@ -35,7 +49,7 @@ const Home = () => {
             playsInline
             poster="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-tea-plantation-in-sri-lanka-from-above-41582-large.mp4" type="video/mp4" />
+            <source src="/191283-889685028_medium.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="about-cinematic-overlay"></div>
@@ -55,7 +69,7 @@ const Home = () => {
       </section>
 
       {/* 2. Our Story Section */}
-      <section className="story-section container">
+      <section id="about" className="story-section container">
         <div className="story-grid">
           <div className="story-image-wrapper">
             <div className="story-badge-founded">Founded in 2013</div>

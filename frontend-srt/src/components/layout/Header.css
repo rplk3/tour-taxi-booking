@@ -49,7 +49,7 @@
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s;
@@ -76,4 +76,8 @@
 
 .header-action {
   display: block;
+}
+
+.header-action .btn {
+  text-transform: none;
 }

@@ -9,13 +9,13 @@ const Home = () => {
     // Simple micro-interaction for stats counting
     const stats = document.querySelectorAll('.stat-number');
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-pulse');
-            }
-        });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-pulse');
+        }
+      });
     }, { threshold: 0.5 });
-    
+
     stats.forEach(stat => observer.observe(stat));
     return () => observer.disconnect();
   }, []);
@@ -23,22 +23,22 @@ const Home = () => {
   return (
     <>
       <Header />
-      
+
       {/* 1. Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-bg">
-          <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0" 
-            alt="Hero Background" 
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0"
+            alt="Hero Background"
             className="about-hero-img"
           />
           <div className="about-cinematic-overlay"></div>
         </div>
-        
+
         <div className="container about-hero-content relative">
           <div className="about-hero-text">
             <span className="about-hero-subtitle">More Than a Tour Company</span>
-            <h1 className="about-hero-title">Creating Meaningful Sri Lanka Journeys Since 2013</h1>
+            <h1 className="about-hero-title">Creating Meaningful Sri Lanka Journeys </h1>
             <p className="about-hero-desc">We believe travel should be personal, authentic, and unforgettable. Our mission is to guide you through the soul of Sri Lanka with elegance and local insight.</p>
             <div className="about-hero-actions">
               <Button variant="primary">Plan Your Journey</Button>
@@ -53,7 +53,7 @@ const Home = () => {
         <div className="story-grid">
           <div className="story-image-wrapper">
             <div className="story-badge-founded">Founded in 2013</div>
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDscW3J-BXGhhIyvxlarorE6zfGRtNgM5xXb9r6aL6dCV5Dru2u0aNImv6sG-ANcXXDn8qEUMqOeebxKVbleL-eMgnI8Xy-qp-yXyhxEeARObO3SnPdfNCnfIpNEHKvQ6rExng_YFRrlkpA2Fyq4gh2TkKNl7NfDWXvw1h58zr6jUeiDQus1wFfhQ_dK3rh3IEf5KJCwCSm2hS40f8dIjpA6v0Jihl0FqE_PtCGf8o6rED1WnLU43XsOMIKCYzvEEtzg72mf2d2hmg" alt="Our Story" className="story-img"/>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDscW3J-BXGhhIyvxlarorE6zfGRtNgM5xXb9r6aL6dCV5Dru2u0aNImv6sG-ANcXXDn8qEUMqOeebxKVbleL-eMgnI8Xy-qp-yXyhxEeARObO3SnPdfNCnfIpNEHKvQ6rExng_YFRrlkpA2Fyq4gh2TkKNl7NfDWXvw1h58zr6jUeiDQus1wFfhQ_dK3rh3IEf5KJCwCSm2hS40f8dIjpA6v0Jihl0FqE_PtCGf8o6rED1WnLU43XsOMIKCYzvEEtzg72mf2d2hmg" alt="Our Story" className="story-img" />
           </div>
           <div className="story-content">
             <h2 className="story-title">Our Story</h2>
@@ -120,7 +120,7 @@ const Home = () => {
           </div>
           <a href="#" className="view-all-link">View All Packages</a>
         </div>
-        
+
         <div className="packages-grid">
           {[
             {

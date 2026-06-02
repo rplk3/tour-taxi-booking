@@ -209,29 +209,17 @@ const Home = () => {
         <div className="showcase-grid">
           <div className="showcase-main relative group">
             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuq-so3dB3HmZ0XuLs3vnLG4RgCpsnw9nwKj8xO_526yun2JNX2TtXnRvxREYxGc4fdgbuSzblVYF6jH7v_KpXasJHg8joXc5CtiZqL9kpugLwqNe6vM6QC4CCZ8_GsKdP0jzFuWO-UXEMvLBdzhWzXhxLso-cTTR0Ao-TAF5bD4eazaz_ihtmrYIGf02yUgISx0ig1AlLaybxs7KSzLMnyibsAVJlPTTuplRYxT94ItZU1F_RuerGZpmor1XD8v7Sj_1kY_adxg" alt="Sigiriya" className="showcase-img" />
-            <div className="showcase-overlay">
-              <h5>Sigiriya Lion Rock</h5>
-            </div>
           </div>
           <div className="showcase-column">
             <div className="showcase-small relative group">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrGK3j3eQ0QLPUOrB56KjGwOTVhgnwSgq_9wUQZfuFa5ZlgGoBAWd1nSOkuAyiV5ShdX5zGTAgl6bnEVGFDD9ETtJJJTIq15x7s_ZzX9MtpVSUmGCdY-oUjD-2sCdIXXKuzuz6XdE7UxzHBcWD-a7zQj9vFWP2smxLRcOXI2-e59jt16inPkpTzbSYMkPNOEu6KVUCMTFnqD04KKEZ7ZYGrR4MaEahV9kjQ6x-3ub7rOe2IogGLtQkdS0D_S-2eu0GaIvCOmU3SlM" alt="Ella" className="showcase-img" />
-              <div className="showcase-overlay">
-                <h6>Ella Highlands</h6>
-              </div>
             </div>
             <div className="showcase-small relative group">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRpSNOEri3Lqbd_k7nNtGGTx_q6k0SM_PNX9IRJeHASPLZyTqvFNiJUk9XPpuXHEAb0wJOsuE4tdo_I--SkMmlnggex8QcRAxJrRU6oyBaL_coU8wXgh1XhWypeWfAskovERUCJ8mitmKxmmCmbf17P-X0rY8YYIV5eANOBknwLpE2S2Np0wWXdZwdPrxJwFjpAsc_Ayp5AnthNlw5uMkD1B0yA2XzCgooezk-qR7AQkg6F7iJV9SeoxYGvM9RnVquTDb4S17VQGA" alt="Galle Fort" className="showcase-img" />
-              <div className="showcase-overlay">
-                <h6>Galle Fort</h6>
-              </div>
             </div>
           </div>
           <div className="showcase-side relative group">
             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV-2QHEsUa3i4ZTjcWaXrBc5i0hYzSkA0j6HXKeUKu_SRIrU2Dh326XPGOzm67izAJIv82kqusUFqWgH-rGekPcFL5_fV_bHKdnBm4_ctKl-hCqnTW2Ro4S5ogaR91OE6WB9raxpAXvACK9CqAG3T6vTrOgxa9K57Vj0A6tdI5GZLyjcxEJ4VmK_kOP7LcSgP0POBLdQNG70TGfdbMsQ92L56cmTpygzH_FjbB5oKuJbLxUQst-D16uIItQ1vt2-pxkLBtpE5I0p8" alt="Kandy Heritage" className="showcase-img" />
-            <div className="showcase-overlay">
-              <h6>Kandy Heritage</h6>
-            </div>
           </div>
         </div>
       </section>

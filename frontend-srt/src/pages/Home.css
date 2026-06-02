@@ -572,11 +572,13 @@
   grid-column: span 1;
   overflow: hidden;
   border-radius: var(--radius-lg);
+  height: 392px;
 }
 
 @media (min-width: 768px) {
   .showcase-main {
     grid-column: span 2;
+    height: 100%;
   }
 }
 

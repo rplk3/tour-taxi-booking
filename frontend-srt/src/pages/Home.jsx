@@ -27,11 +27,17 @@ const Home = () => {
       {/* 1. Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-bg">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0"
-            alt="Hero Background"
-            className="about-hero-img"
-          />
+          <video 
+            className="about-hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-tea-plantation-in-sri-lanka-from-above-41582-large.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="about-cinematic-overlay"></div>
         </div>
 

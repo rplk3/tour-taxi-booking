@@ -24,7 +24,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="header-nav container">
         <Link to="/" className="brand-logo">
-          SRT Tours Sri Lanka
+          SRT Ceylon
         </Link>
         <div className="nav-links">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>

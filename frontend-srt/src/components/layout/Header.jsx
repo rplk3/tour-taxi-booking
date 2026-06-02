@@ -15,7 +15,7 @@ const Header = () => {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,7 +24,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="header-nav container">
         <Link to="/" className="brand-logo">
-          Ceylon Journeys
+          SRT Tours Sri Lanka
         </Link>
         <div className="nav-links">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>

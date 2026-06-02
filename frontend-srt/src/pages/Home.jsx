@@ -1,108 +1,117 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Button from '../components/ui/Button';
 import './Home.css';
 
 const Home = () => {
+  useEffect(() => {
+    // Simple micro-interaction for stats counting
+    const stats = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-pulse');
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    stats.forEach(stat => observer.observe(stat));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Header />
       
-      {/* 2. Hero Section */}
-      <section className="hero-section">
-        <div className="hero-bg">
+      {/* 1. Hero Section */}
+      <section className="about-hero-section">
+        <div className="about-hero-bg">
           <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWtAR8jySi12tkOO6AeFCpVoCO2qHC7LIxaXO-x6eZfhvja4QN7GVu-k8TFoQLUw3oTQJquPjBB4NB-ehxUZqhxNblxaborhRxYBuBjJpYlC-WSvDdk4F9kqtCvZIj0WMXvcGHuOvFzmICJ1okmxNRQm6jgs7pcR06l0PIFbgT9V1Xl7y150bcV5rBWgXOLHEwXI4GxjFCfvAS3d9TzgxUffhcrreqUDAz5TBtmhc-MVC5Fd-jrMj4TAJvqXa83I6H9ZEsh3rYLBw" 
-            alt="Sigiriya" 
-            className="hero-img"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n7dB47X4aB4_pOwfg1xF5-jOa8rbxKw1sMZYC_do1IdHuoVYlZdRqHBmOGSXfFKKsTXa6JqHmIn5K4Ab2zt8PWq6nuqUzf2_MCYInEIeViUizep2AYps_-yn-e-MOPdJ8kc8cCBqS9Avf0g-2YoBiDOQVHAl_QwAHK_pxtOKIzMSRzFodGvQJ2_g7ek-CsblRApMjsCeNJBq3hhrGSK9T4S6qGAXwHUwIFjw2pw7uSCZNAVt1z_iQ8g3pQ_RL8hz2284Jd2j9u0" 
+            alt="Hero Background" 
+            className="about-hero-img"
           />
-          <div className="hero-scrim"></div>
+          <div className="about-cinematic-overlay"></div>
         </div>
         
-        <div className="container hero-content relative">
-          <div className="hero-text">
-            <p className="hero-subtitle">From Ancient Wonders to Golden Beaches</p>
-            <h1 className="hero-title">Unveil the Soul of the Resplendent Isle</h1>
-            <Button variant="primary" className="hero-btn">Plan My Trip</Button>
-          </div>
-        </div>
-
-        {/* Floating Thumbnails */}
-        <div className="floating-thumbnails">
-          <div className="thumb-1">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKM2oJBTGF7G1IQPyonQSSKoLgyE8VwX5_C66EltY3Xxi3mOzlbV1VRFgpZiTw-xBH-GXlW9ZflO5RBSlAyvMx9Sft_FusYn-hgwOeb0f4lwWXM_7Offr6ZfAbNYyE_XCD49bBFcMykIXPm6-dp79vFdiLiuw4DZwPith3iZ_OaRbYAQEfp5ZX277P7hTw2VedV7P7oe5vb00Rla2uFB_Zs3m1OXL7uFupf0iJv4renlVd9pjecYP-sZoUUGDz5RDqHTz7rX0_rU" alt="Stilt Fisherman" />
-          </div>
-          <div className="thumb-2">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNViPliZgMATp8rJwfOfe5IbM1qX0v0GifmydP8iYBCnIu-ZkCL815eORxjyDnpji9vt7wpv01XEeT4xOyVGfUKekMFDzsUU25irJumcPci176H9SkaJe_iVeVM94PybczQdFuMcPYXNjbBNygV3w2leoL5C7r2uE_HFdtgfqRTpGfvy9XXF5B6trvU25IrzYFC9drxMHMs0Y5m4lvl8oWzQMwcXxWIZk8PG0eKBs2a41NSM7a2ddLmas2esFbs0GODyAT1zGc9i8" alt="Nine Arch Bridge" />
-          </div>
-          <div className="thumb-3">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI8lQMaZHzZB2fbkE3R7GqbhHWcKRuA0SK5xZiykQ_JMOEC7TtLLokTE_NgmsKUZWynxbgt7jZZoQ1Q3okYkKQAAKe-Ly2f61bZ0WDthSVK5-95YWz7GEsaYsNUBWjGECuBGwA-bxEg6S7OyJvDzsGFfnMdtv3wHsZ19LHS35ckniA4ajplTyl2p0IO0vE-7CrSJd07qexUpXLNid90oy8hUMwTvsBzUyonL9MVOCssmEcJBqZyW6ZL6_ortWsbjVpyJh0U2QAOv0" alt="Infinity Pool" />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. About Section */}
-      <section className="about-section container">
-        <div className="about-grid">
-          <div className="about-image-wrapper">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvanpekF-x-33aj3PdV0wtOksNC3PtFlLpJwrV1Sv-VL3frjNmSWFjOAs5UCErrfbzInYeWg9iiGTn5DzE2wzNY2a6aweMBhnU91-tT1BlysJCInxKhxVNr7BLwBZeQ44lu52HuaWQKDIg-WcEgczboMbZbVw6VOSoXzBHWjGNGc63HabOhoOsgvOMHIgG8ePCWSgSKnizliNw9e1oQSK90AoPrcIhrQhsDQ6GDg0zRreFmXQHVF2jRlY0X50c8MnuI_A8eTuwllg" alt="Travel Curator" className="about-img"/>
-            <div className="experience-stamp">
-              <p>Founded<br/><span>2013</span><br/>Experience</p>
-            </div>
-          </div>
-          <div className="about-content">
-            <span className="story-badge">Our Story</span>
-            <h2 className="about-title">Curating Extraordinary Journeys Since 2013</h2>
-            <p className="about-text">We don't just book trips; we craft personal narratives. Born from a passion for the hidden corners of Sri Lanka, Ceylon Journeys bridge the gap between authentic local immersion and uncompromising luxury.</p>
-            
-            <div className="features-grid">
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <span className="material-symbols-outlined">explore</span>
-                </div>
-                <h4>Expert Guidance</h4>
-                <p>Deep local knowledge and curated routes that avoid the crowds.</p>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <span className="material-symbols-outlined">support_agent</span>
-                </div>
-                <h4>Elite Support</h4>
-                <p>Concierge-level assistance available 24/7 during your journey.</p>
-              </div>
+        <div className="container about-hero-content relative">
+          <div className="about-hero-text">
+            <span className="about-hero-subtitle">More Than a Tour Company</span>
+            <h1 className="about-hero-title">Creating Meaningful Sri Lanka Journeys Since 2013</h1>
+            <p className="about-hero-desc">We believe travel should be personal, authentic, and unforgettable. Our mission is to guide you through the soul of Sri Lanka with elegance and local insight.</p>
+            <div className="about-hero-actions">
+              <Button variant="primary">Plan Your Journey</Button>
+              <button className="btn-outline-white">Explore Our Tours</button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Why Choose Us */}
-      <section className="why-us-section">
+      {/* 2. Our Story Section */}
+      <section className="story-section container">
+        <div className="story-grid">
+          <div className="story-image-wrapper">
+            <div className="story-badge-founded">Founded in 2013</div>
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDscW3J-BXGhhIyvxlarorE6zfGRtNgM5xXb9r6aL6dCV5Dru2u0aNImv6sG-ANcXXDn8qEUMqOeebxKVbleL-eMgnI8Xy-qp-yXyhxEeARObO3SnPdfNCnfIpNEHKvQ6rExng_YFRrlkpA2Fyq4gh2TkKNl7NfDWXvw1h58zr6jUeiDQus1wFfhQ_dK3rh3IEf5KJCwCSm2hS40f8dIjpA6v0Jihl0FqE_PtCGf8o6rED1WnLU43XsOMIKCYzvEEtzg72mf2d2hmg" alt="Our Story" className="story-img"/>
+          </div>
+          <div className="story-content">
+            <h2 className="story-title">Our Story</h2>
+            <div className="story-text">
+              <p>What started as a small, passionate team of three local travel enthusiasts in Colombo has blossomed into one of Sri Lanka's most trusted Destination Management Companies. Our journey was never about volume; it was about the depth of experience.</p>
+              <p>Over the last decade, we have traversed every corner of this emerald isle, building relationships with local artisans, village elders, and boutique hoteliers to ensure our guests access the true heart of Ceylon.</p>
+            </div>
+            <div className="founder-quote-box">
+              <p className="founder-quote">"Our goal has always been simple — to help travelers experience Sri Lanka the way locals know and love it."</p>
+              <cite className="founder-cite">— Founder, Ceylon Journeys</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Mission & Vision */}
+      <section className="mission-vision-section">
         <div className="container">
-          <div className="section-header">
-            <h2>The Ceylon Journeys Standard</h2>
-            <div className="divider"></div>
-          </div>
-          <div className="why-us-grid">
-            {[
-              { icon: 'history_edu', title: '10+ Years Excellence', desc: 'A decade of perfecting the art of Sri Lankan hospitality and logistics.' },
-              { icon: 'verified', title: 'Fully Licensed', desc: 'Accredited by the Sri Lanka Tourism Development Authority (SLTDA).' },
-              { icon: 'auto_fix_high', title: 'Customized Tours', desc: 'No templates. Every itinerary is built from scratch around your desires.' },
-              { icon: 'record_voice_over', title: 'English Guides', desc: 'Expert storytellers fluent in English and deep historical context.' },
-              { icon: 'alarm', title: '24/7 Assistance', desc: 'Always a phone call away for any requests or adjustments on the go.' },
-              { icon: 'business_center', title: 'Professionalism', desc: 'Elite vehicle fleet and meticulously vetted hotel partners.' },
-            ].map((item, idx) => (
-              <div className="why-card" key={idx}>
-                <span className="material-symbols-outlined why-icon">{item.icon}</span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
+          <div className="mv-grid">
+            <div className="mv-card">
+              <span className="material-symbols-outlined mv-icon">explore</span>
+              <h3>Our Mission</h3>
+              <p>To curate safe, authentic, and personalized travel experiences that celebrate the heritage, nature, and people of Sri Lanka while fostering sustainable tourism.</p>
+            </div>
+            <div className="mv-card">
+              <span className="material-symbols-outlined mv-icon">landscape</span>
+              <h3>Our Vision</h3>
+              <p>To be the global benchmark for luxury travel in Sri Lanka, recognized for our unwavering commitment to quality, integrity, and local empowerment.</p>
+            </div>
           </div>
         </div>
       </section>
-      
-      {/* 5. Featured Packages / Top Destinations */}
+
+      {/* 4. Why Ceylon Journeys? */}
+      <section className="why-ceylon-section container">
+        <div className="section-header-center">
+          <h2>Why Ceylon Journeys?</h2>
+          <p>We provide the foundation for your adventure, handling the details so you can immerse yourself in the moment.</p>
+        </div>
+        <div className="why-ceylon-grid">
+          {[
+            { icon: 'verified_user', title: 'Licensed & Bonded', desc: 'Full SLTDA certification ensures your journey is protected by national tourism standards and regulations.' },
+            { icon: 'edit_calendar', title: 'Tailor-Made Itineraries', desc: 'No two journeys are the same. We craft each itinerary from scratch based on your specific passions and pace.' },
+            { icon: 'directions_car', title: 'Professional Chauffeurs', desc: 'Our expert English-speaking chauffeurs are more than drivers; they are knowledgeable hosts and storytellers.' },
+            { icon: 'support_agent', title: '24/7 Concierge Support', desc: 'Travel with peace of mind knowing our dedicated support team is available around the clock for any request.' },
+            { icon: 'hotel', title: 'Selected Hotels', desc: 'We personally vet every boutique villa and luxury resort to ensure they meet our strict standards of excellence.' },
+            { icon: 'payments', title: 'Transparent Pricing', desc: 'No hidden fees or unexpected costs. We provide clear, all-inclusive quotes for total transparency.' },
+          ].map((item, idx) => (
+            <div className="why-ceylon-card" key={idx}>
+              <span className="material-symbols-outlined why-ceylon-icon">{item.icon}</span>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Transplanted: Featured Packages / Top Destinations */}
       <section className="featured-packages container">
         <div className="featured-header">
           <div>
@@ -152,14 +161,168 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 9. CTA Banner */}
-      <section className="cta-section container">
-        <div className="cta-banner">
-          <h2 className="cta-title">Ready to Design Your Perfect Sri Lanka Holiday?</h2>
-          <p className="cta-text">Connect with our luxury travel curators for a personalized consultation and a bespoke itinerary designed around your travel style.</p>
+      {/* 5. Our Values */}
+      <section className="values-section">
+        <div className="container">
+          <div className="values-grid">
+            {[
+              { icon: 'verified', title: 'Authenticity', desc: 'Real connections, not just tourist attractions.' },
+              { icon: 'shield_with_heart', title: 'Trust', desc: 'Integrity in every interaction and booking.' },
+              { icon: 'workspace_premium', title: 'Excellence', desc: 'A relentless focus on quality and luxury detail.' },
+              { icon: 'diversity_3', title: 'Care', desc: 'Nurturing our guests, staff, and environment.' }
+            ].map((v, i) => (
+              <div className="value-card" key={i}>
+                <span className="material-symbols-outlined value-icon">{v.icon}</span>
+                <h3>{v.title}</h3>
+                <p>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Stats Section */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="stats-grid">
+            {[
+              { num: '15+', label: 'Years of Expertise' },
+              { num: '5,000+', label: 'Happy Travelers' },
+              { num: '100+', label: 'Luxury Vehicles' },
+              { num: '24/7', label: 'Concierge Service' }
+            ].map((stat, i) => (
+              <div className="stat-card" key={i}>
+                <div className="stat-number font-display-lg">{stat.num}</div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Experience Showcase */}
+      <section className="showcase-section container">
+        <div className="section-header-center">
+          <h2>Experience Sri Lanka</h2>
+          <p>A glimpse into the magical landscapes we call home.</p>
+        </div>
+        <div className="showcase-grid">
+          <div className="showcase-main relative group">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuq-so3dB3HmZ0XuLs3vnLG4RgCpsnw9nwKj8xO_526yun2JNX2TtXnRvxREYxGc4fdgbuSzblVYF6jH7v_KpXasJHg8joXc5CtiZqL9kpugLwqNe6vM6QC4CCZ8_GsKdP0jzFuWO-UXEMvLBdzhWzXhxLso-cTTR0Ao-TAF5bD4eazaz_ihtmrYIGf02yUgISx0ig1AlLaybxs7KSzLMnyibsAVJlPTTuplRYxT94ItZU1F_RuerGZpmor1XD8v7Sj_1kY_adxg" alt="Sigiriya" className="showcase-img" />
+            <div className="showcase-overlay">
+              <h5>Sigiriya Lion Rock</h5>
+            </div>
+          </div>
+          <div className="showcase-column">
+            <div className="showcase-small relative group">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrGK3j3eQ0QLPUOrB56KjGwOTVhgnwSgq_9wUQZfuFa5ZlgGoBAWd1nSOkuAyiV5ShdX5zGTAgl6bnEVGFDD9ETtJJJTIq15x7s_ZzX9MtpVSUmGCdY-oUjD-2sCdIXXKuzuz6XdE7UxzHBcWD-a7zQj9vFWP2smxLRcOXI2-e59jt16inPkpTzbSYMkPNOEu6KVUCMTFnqD04KKEZ7ZYGrR4MaEahV9kjQ6x-3ub7rOe2IogGLtQkdS0D_S-2eu0GaIvCOmU3SlM" alt="Ella" className="showcase-img" />
+              <div className="showcase-overlay">
+                <h6>Ella Highlands</h6>
+              </div>
+            </div>
+            <div className="showcase-small relative group">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRpSNOEri3Lqbd_k7nNtGGTx_q6k0SM_PNX9IRJeHASPLZyTqvFNiJUk9XPpuXHEAb0wJOsuE4tdo_I--SkMmlnggex8QcRAxJrRU6oyBaL_coU8wXgh1XhWypeWfAskovERUCJ8mitmKxmmCmbf17P-X0rY8YYIV5eANOBknwLpE2S2Np0wWXdZwdPrxJwFjpAsc_Ayp5AnthNlw5uMkD1B0yA2XzCgooezk-qR7AQkg6F7iJV9SeoxYGvM9RnVquTDb4S17VQGA" alt="Galle Fort" className="showcase-img" />
+              <div className="showcase-overlay">
+                <h6>Galle Fort</h6>
+              </div>
+            </div>
+          </div>
+          <div className="showcase-side relative group">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV-2QHEsUa3i4ZTjcWaXrBc5i0hYzSkA0j6HXKeUKu_SRIrU2Dh326XPGOzm67izAJIv82kqusUFqWgH-rGekPcFL5_fV_bHKdnBm4_ctKl-hCqnTW2Ro4S5ogaR91OE6WB9raxpAXvACK9CqAG3T6vTrOgxa9K57Vj0A6tdI5GZLyjcxEJ4VmK_kOP7LcSgP0POBLdQNG70TGfdbMsQ92L56cmTpygzH_FjbB5oKuJbLxUQst-D16uIItQ1vt2-pxkLBtpE5I0p8" alt="Kandy Heritage" className="showcase-img" />
+            <div className="showcase-overlay">
+              <h6>Kandy Heritage</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Meet Our Team */}
+      <section className="team-section container">
+        <div className="section-header-center">
+          <h2>Meet Our Travel Experts</h2>
+          <p>The passionate individuals behind your seamless Sri Lankan adventure.</p>
+        </div>
+        <div className="team-grid">
+          {[
+            { img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-iP157HzIjANZVIfN-H5uW4HK2XUR91Aly-Lu47gQ6F9ZH05wKS-_pLvGmsEXj5iJIPi1xPzGsKL_BfjWb-uJf0DrpLQnLOyCyYVI2qvoefb1GHqnxBEViYmEPPeXFJ1tlAcwM2WrmnLnnU-0NqeVSP4qBLxxqPAZ_CVa8mZWHWW2fQELZfxBgcwH99UShC0V46Ho9WYKOBRM39nqZweg1mkzP6YGeU8AaJFwHphG0mb1ADnXQOp5AeFlU75uTUKsR_MpsQq9r04', name: 'Ranil Perera', role: 'Founder & CEO', lang: 'English, Sinhalese, Japanese' },
+            { img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8iCQokjTeg-o6-t5f3t5C0BGPJC1e_pQmWgvkp8yjUr0fYUfIkltf-hBd_YrYdnODSj0rq8HbuTjsq4sxvy7_5o3OvYm0kB-ON7GpV-WK9wrKZFruhN7yBRbMQfeCBYPhJqH908fTtc_FnMhYUyUmVjKlK6phnjyvH--wM5MfMTR93CKKqy9Sw7RapvOznoSbHJBrGdFmWqrcBN--9Ld_2S9JHvHnfz9DdmmAfeWHlF0JHt5NBOxwNrIsUxCM5iWco6W8Y88gYMQ', name: 'Ishani De Silva', role: 'Senior Tour Consultant', lang: 'English, German, Sinhalese' },
+            { img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuChE1DQ-OeXSAgNrblzQivsN8-toRBY5mIOwjT8NjzGoSquma2Qg6296H8vuQFhRLlxMnC4L3TM1zDGbTYDSRU0fqAIBRBasxzf7bjXPeTGv0A6Z1r9Qv1bxGMIMPoo54IRXk09D1Q2JFtPM0TLDqrrB8wJdDoc2mlrbNqSvQZw4Tt9hOjZDJPhHhJuLwaa6C83TrVrwVtztQBmquDzwx1LCA9MQLvqZhjgbx6m_iKH0Ipl9DMOy0aPgNwPxNniFBJdNaiVAkkzKms', name: 'Kumara Rathnayake', role: 'Experience Architect', lang: 'English, French, Sinhalese' }
+          ].map((member, i) => (
+            <div className="team-card" key={i}>
+              <img src={member.img} alt={member.name} className="team-img" />
+              <h4>{member.name}</h4>
+              <p className="team-role">{member.role}</p>
+              <p className="team-lang">Languages: {member.lang}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 9. Timeline */}
+      <section className="timeline-section container">
+        <div className="section-header-center">
+          <h2>Our Milestone Journey</h2>
+        </div>
+        <div className="timeline-container">
+          <div className="timeline-line"></div>
+          {[
+            { year: '2013', title: 'The Seed is Planted', desc: 'Ceylon Journeys founded in Colombo with 3 employees and 2 vehicles.' },
+            { year: '2017', title: 'Expanding Horizons', desc: 'Opened regional office in Kandy and launched the "Signature Collection" of boutique stays.' },
+            { year: '2021', title: 'Resilience & Digital Growth', desc: 'Awarded WTTC "Safe Travels" stamp and implemented AI-powered itinerary curation.' },
+            { year: '2026', title: 'Vision 2026', desc: 'Aiming for 100% carbon-neutral operations and global service expansion.' }
+          ].map((milestone, i) => (
+            <div className="timeline-item" key={i}>
+              <div className="timeline-dot"></div>
+              <span className="timeline-year">{milestone.year}</span>
+              <h4>{milestone.title}</h4>
+              <p>{milestone.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 10. Testimonials & Certs */}
+      <section className="testimonials-section">
+        <div className="container">
+          <div className="section-header-center">
+            <div className="certs-row">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-OKWaXT_N5Ryq6EpK1gfD9MXn_VyKrUYmtAng282hM6Qhi9SpZLld6R5xGRqhGWouQRVdSfy6B-q8KOCNaSqrGogZgOmt3ImaBmE00uKgNlpStvmmK-MHCwYFyWGbWd4_7Ru0gMac2mocCA1aWEZiPhf310X81W2UyPqGC7gBiyAGrBYp3QkgieKo64kN1iM8I5khk-C2JhlYcJRZls9FmR7LupfnxEr4xdK4BRjlrHHg5ufmBI1NNHccoe4xqfb4c26iAxRL7hM" alt="SLTDA" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDegx9si3VrcCaJBQbQjD2dGm5nHrZg82viKKxYuNKIUMOwLC86TY4GIcKOpcsweRkuh404KDibGkH-q4s-ULOFUZtXCFhQJB4zmh2IQKTRlpF8rXnCZrrBewwW0MXJTC7oM-H8ZaqZ3fdonhYYAcPecbBWCyDtpX-N0IeMePJMP8y-xiDfZ4AdWzrwBLN4DPTyt6NLQZvwO4inWHJERCwU_sP8EhhhFxDHut8OqyPRUXX5g67JQ8-CTVMBqE5z3vr3cMGBk_6VZWs" alt="WTTC" />
+            </div>
+            <h2>Voices of Our Travelers</h2>
+          </div>
+          <div className="testimonials-grid">
+            {[
+              { text: '"An absolutely seamless experience from arrival to departure. Our driver was not only professional but became like family by the end of the trip. The selection of boutique villas was perfect."', author: 'Sarah J., London' },
+              { text: '"Ceylon Journeys showed us a side of Sri Lanka we never would have found on our own. The private cooking class in a village home was the highlight of our entire honeymoon."', author: 'Marcus & Elena, Stockholm' }
+            ].map((t, i) => (
+              <div className="testimonial-card" key={i}>
+                <div className="stars">
+                  <span className="material-symbols-outlined">star</span>
+                  <span className="material-symbols-outlined">star</span>
+                  <span className="material-symbols-outlined">star</span>
+                  <span className="material-symbols-outlined">star</span>
+                  <span className="material-symbols-outlined">star</span>
+                </div>
+                <p>"{t.text}"</p>
+                <div className="author">— {t.author}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Final CTA */}
+      <section className="final-cta-section">
+        <div className="final-cta-bg">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJfgvPCaf7Tn16EvIKRCfYdF2OkarurtSJUgx4fMBrHubjNENqaVgrrbyvyaDDvkBRCYNi9rqSqpubNCem36HUMZLqGT4jI5aPZsjTWIBerxKq_oxXdlgpue5p7nU9nq67zGQAT93RbSxzNo6j_-aYD4YulPHHXIJVDscHO-QG707lLCkgm1NHqIAxE2l9jc4nizkCl_38Y8NnaoGCFyQns1u9nUu3PdLfor2GdbAFB027EbHK-vretLg5phcpyX19mrxNuiB7xk" alt="Sunset CTA" />
+          <div className="cta-overlay"></div>
+        </div>
+        <div className="container relative z-10 text-center">
+          <h2>Ready To Experience The Real Sri Lanka?</h2>
           <div className="cta-actions">
-            <Button variant="secondary" className="cta-btn-1">Plan My Custom Tour</Button>
-            <Button variant="white" className="cta-btn-2">Call Our Experts</Button>
+            <Button variant="primary">Start Planning My Trip</Button>
+            <button className="btn-outline-white">Contact Our Team</button>
           </div>
         </div>
       </section>

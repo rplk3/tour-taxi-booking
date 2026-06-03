@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Caveat+Brush&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 :root {
@@ -49,6 +49,7 @@
   --color-on-tertiary-fixed-variant: #124782;
   --color-background: #fcf9f3;
   --color-on-background: #1c1c18;
+  --color-surface-variant: #e5e2dc;
 
   /* Typography */
   --font-display: 'Playfair Display', serif;

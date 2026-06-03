@@ -58,31 +58,31 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="header-nav container">
         <Link to="/" className="brand-logo">
-          SRT Ceylon
+          SRT Tours
         </Link>
         <div className="nav-links">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             onClick={(e) => handleNavLinkClick(e, 'home')}
             className={location.pathname === '/' && activeSection === 'home' ? 'active' : ''}
           >
             Home
           </Link>
-          <Link 
-            to="/#about" 
+          <Link
+            to="/#about"
             onClick={(e) => handleNavLinkClick(e, 'about')}
             className={location.pathname === '/' && activeSection === 'about' ? 'active' : ''}
           >
             About Us
           </Link>
-          <Link 
-            to="/fleet" 
+          <Link
+            to="/fleet"
             className={location.pathname === '/fleet' ? 'active' : ''}
           >
             Vehicles
           </Link>
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className={location.pathname === '/contact' ? 'active' : ''}
           >
             Contact

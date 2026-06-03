@@ -711,29 +711,37 @@
 
 .timeline-container {
   position: relative;
-  margin-left: 16px;
-}
-
-@media (min-width: 768px) {
-  .timeline-container {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  padding: 40px 0;
 }
 
 .timeline-line {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
   bottom: 0;
   width: 2px;
   background-color: var(--color-surface-variant);
+  transform: translateX(-50%);
 }
 
 .timeline-item {
   position: relative;
-  margin-left: 32px;
+  width: 50%;
+  padding-right: 40px;
   margin-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-right: 0;
+  padding-left: 40px;
+  text-align: left;
 }
 
 .timeline-item:last-child {
@@ -742,14 +750,22 @@
 
 .timeline-dot {
   position: absolute;
-  left: -41px;
-  top: 0;
+  top: 4px;
   width: 16px;
   height: 16px;
   background-color: var(--color-secondary);
   border: 4px solid #ffffff;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
 }
 
 .timeline-year {
@@ -768,6 +784,26 @@
 
 .timeline-item p {
   color: var(--color-on-surface-variant);
+}
+
+@media (max-width: 767px) {
+  .timeline-line {
+    left: 16px;
+    transform: none;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 32px;
+    padding-right: 0;
+    text-align: left !important;
+  }
+  
+  .timeline-dot {
+    left: 9px !important;
+    right: auto !important;
+  }
 }
 
 /* Testimonials */

@@ -22,16 +22,19 @@
 }
 
 .brand-logo {
-  font-family: 'Caveat Brush', cursive;
-  font-size: 38px;
-  font-weight: 400;
-  color: #ffffff;
-  transition: color 0.5s;
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
 }
 
-.header.scrolled .brand-logo {
-  color: var(--color-primary);
+.header-logo {
+  height: 60px;
+  width: auto;
+  transition: filter 0.5s;
+}
+
+.header.scrolled .header-logo {
+  /* Recolor white logo to dark green (--color-primary: #0f5238) when on light bg */
+  filter: brightness(0) saturate(100%) invert(25%) sepia(30%) saturate(1200%) hue-rotate(115deg) brightness(92%) contrast(95%);
 }
 
 .nav-links {

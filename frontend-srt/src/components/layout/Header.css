@@ -5,14 +5,14 @@
   z-index: 50;
   transition: all 0.5s ease-in-out;
   background-color: transparent;
-  padding: 20px 0;
+  padding: 12.5px 0; /* Reduced from 20px to compensate for 75px logo */
 }
 
 .header.scrolled {
   background-color: rgba(252, 249, 243, 0.9);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 12px 0;
+  padding: 8px 0; /* Reduced from 12px to compensate for 68px logo */
 }
 
 .header-nav {
@@ -27,12 +27,13 @@
 }
 
 .header-logo {
-  height: 60px;
+  height: 75px; /* Increased from 60px */
   width: auto;
-  transition: filter 0.5s;
+  transition: height 0.3s ease-in-out, filter 0.5s;
 }
 
 .header.scrolled .header-logo {
+  height: 68px; /* Slightly smaller when scrolled */
   /* Recolor white logo to dark green (--color-primary: #0f5238) when on light bg */
   filter: brightness(0) saturate(100%) invert(25%) sepia(30%) saturate(1200%) hue-rotate(115deg) brightness(92%) contrast(95%);
 }

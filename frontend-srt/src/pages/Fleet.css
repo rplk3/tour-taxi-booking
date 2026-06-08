@@ -43,7 +43,7 @@
 /* ─── Hero Section ─── */
 .new-fleet-hero {
   position: relative;
-  height: 90vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   overflow: visible;
@@ -54,7 +54,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: -70px;
+  bottom: -170px;
   z-index: 0;
 }
 

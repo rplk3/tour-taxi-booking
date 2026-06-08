@@ -1,0 +1,330 @@
+/* ===========================
+   Vehicle Modal Component
+   =========================== */
+
+/* Overlay */
+.vehicle-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Panel */
+.vehicle-modal {
+  background: var(--color-surface-container-lowest);
+  border-radius: 20px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25);
+  animation: modalSlideUp 0.35s ease;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Layout */
+.modal-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .modal-layout {
+    flex-direction: row;
+  }
+}
+
+/* Gallery */
+.modal-gallery {
+  flex: 1;
+  min-height: 280px;
+}
+
+@media (min-width: 768px) {
+  .modal-gallery {
+    flex: 0 0 45%;
+    min-height: auto;
+  }
+}
+
+.modal-main-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .modal-main-image {
+    height: 360px;
+    border-radius: 20px 0 0 0;
+  }
+}
+
+.modal-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-thumbnails {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+.modal-thumb {
+  flex: 0 0 64px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+  padding: 0;
+  background: none;
+}
+
+.modal-thumb.active {
+  border-color: var(--color-primary);
+  opacity: 1;
+}
+
+.modal-thumb:hover {
+  opacity: 1;
+}
+
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details Side */
+.modal-details {
+  flex: 1;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.modal-details .vehicle-badge {
+  position: static;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.modal-vehicle-name {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+/* Price Block */
+.modal-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(15, 82, 56, 0.06), rgba(15, 82, 56, 0.02));
+  border-radius: 12px;
+  border: 1px solid rgba(15, 82, 56, 0.1);
+}
+
+.modal-price-amount {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.modal-price-note {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+}
+
+/* Specs Row */
+.modal-specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.modal-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-on-surface-variant);
+}
+
+.modal-spec-item .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+.modal-spec-item span:last-child {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Sections */
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-section-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+  margin-bottom: 12px;
+}
+
+/* Features Grid */
+.modal-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.modal-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-feature-item .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--color-primary);
+  font-variation-settings: 'FILL' 1;
+}
+
+.modal-feature-item span:last-child {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-on-surface);
+  font-weight: 500;
+}
+
+/* Tags */
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--color-primary-fixed);
+  color: var(--color-on-primary-fixed);
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Suitable For */
+.modal-suitable {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--color-surface-container);
+  border-radius: 10px;
+  border-left: 3px solid var(--color-primary);
+}
+
+/* CTA */
+.modal-cta-whatsapp {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 15px;
+  border-radius: 12px;
+  justify-content: center;
+}
+
+/* Scrollbar styling for modal */
+.vehicle-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vehicle-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vehicle-modal::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 3px;
+}

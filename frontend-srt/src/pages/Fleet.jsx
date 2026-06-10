@@ -21,7 +21,7 @@ const vehiclesData = [
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Fuel Efficient', 'USB Charging'],
     suitableFor: 'Ideal for couples, solo travelers, and budget-friendly city transfers.',
     specs: { airConditioning: true, wifi: false, chargingPorts: true, childSeat: true },
-    gallery: [],
+    gallery: ['/Toyota-Prius.png', '/Toyota-Premio.png', '/Toyota-Axio.png', '/Honda-Vezel.png'],
     recommendedFor: ['City Tours', 'Airport Transfers', 'Budget Travel'],
   },
   {
@@ -38,7 +38,7 @@ const vehiclesData = [
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'USB Charging', 'Child Seat Available'],
     suitableFor: 'Great for small families and couples who enjoy extra space and comfort.',
     specs: { airConditioning: true, wifi: false, chargingPorts: true, childSeat: true },
-    gallery: [],
+    gallery: ['/Honda-Vezel.png', '/Toyota-Prius.png', '/Toyota-Premio.png', '/Toyota-Axio.png'],
     recommendedFor: ['Family Tours', 'Airport Transfers', 'Hill Country Trips'],
   },
   {

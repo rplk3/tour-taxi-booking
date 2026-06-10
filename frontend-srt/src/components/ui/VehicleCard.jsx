@@ -57,7 +57,7 @@ const VehicleCard = ({ vehicle, onViewDetails }) => {
             onClick={() => onViewDetails(vehicle)}
           >
             <span className="material-symbols-outlined">visibility</span>
-            View Details
+            View More
           </button>
           <a
             href={whatsappUrl}

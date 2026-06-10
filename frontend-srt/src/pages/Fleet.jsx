@@ -15,6 +15,7 @@ const vehiclesData = [
     price: '$55',
     priceNote: 'per day · unlimited km',
     image: '/Toyota-Prius.png',
+    description: 'A fuel-efficient hybrid sedan, air-conditioned with capacity of 3 passengers, ideal for budget-friendly transfers and city tours.',
     passengers: 'Up to 3',
     luggage: '2 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Fuel Efficient', 'USB Charging'],
@@ -31,6 +32,7 @@ const vehiclesData = [
     price: '$65',
     priceNote: 'per day · unlimited km',
     image: '/Honda-Vezel.png',
+    description: 'A modern compact SUV, air-conditioned with capacity of 4 passengers, ideal for comfortable family trips and hill country tours.',
     passengers: 'Up to 4',
     luggage: '2 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'USB Charging', 'Child Seat Available'],
@@ -47,6 +49,7 @@ const vehiclesData = [
     price: '$55',
     priceNote: 'per day · unlimited km',
     image: '/Toyota-Axio.png',
+    description: 'A reliable economy sedan, air-conditioned with capacity of 3 passengers, ideal for airport transfers and business travel.',
     passengers: 'Up to 3',
     luggage: '2 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Bottled Water'],
@@ -63,6 +66,7 @@ const vehiclesData = [
     price: '$70',
     priceNote: 'per day · unlimited km',
     image: '/Toyota-Premio.png',
+    description: 'A premium luxury sedan, air-conditioned with capacity of 3 passengers, offering maximum comfort for private tours.',
     passengers: 'Up to 3',
     luggage: '2 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Bottled Water', 'USB Charging'],
@@ -79,6 +83,7 @@ const vehiclesData = [
     price: '$100',
     priceNote: 'per day · unlimited km',
     image: 'Toyota-KDH.png',
+    description: 'A comfortable passenger van, air-conditioned with capacity of 8 passengers, perfect for family tours and small group excursions.',
     passengers: 'Up to 8',
     luggage: '5 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Bottled Water', 'Spacious Interior'],
@@ -89,12 +94,13 @@ const vehiclesData = [
   },
   {
     id: 'toyota-hiace-high-roof',
-    name: 'Toyota Hiace High Roof',
+    name: 'Toyota High Roof',
     category: 'Family',
     categoryStyle: 'badge-family',
     price: '$110',
     priceNote: 'per day · unlimited km',
     image: '/Toyota-Highroof.png',
+    description: 'A full sized van, air conditioned with capacity of 9 passengers ideal for long distance trips',
     passengers: 'Up to 10',
     luggage: '6 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Bottled Water', 'Extra Headroom', 'USB Charging'],
@@ -111,6 +117,7 @@ const vehiclesData = [
     price: '$180',
     priceNote: 'per day · unlimited km',
     image: '/Mini-Coaster.png',
+    description: 'A spacious mid-sized mini coach, air-conditioned with capacity of 20 passengers, ideal for large families and team outings.',
     passengers: 'Up to 20',
     luggage: '10 Large',
     features: ['Air Conditioned', 'Comfortable Seating', 'Professional Driver', 'Bottled Water', 'PA System', 'Large Luggage Bay'],
@@ -127,6 +134,7 @@ const vehiclesData = [
     price: '$250',
     priceNote: 'per day · unlimited km',
     image: '/Yutong-C12.png',
+    description: 'A large executive touring coach, air-conditioned with capacity of 45 passengers, best for large tour groups and events.',
     passengers: 'Up to 45',
     luggage: '20+ Large',
     features: ['Air Conditioned', 'Reclining Seats', 'Professional Driver', 'Bottled Water', 'PA System', 'Large Luggage Bay', 'USB Charging'],
@@ -191,7 +199,7 @@ const Fleet = () => {
           <div className="container">
             <div className="fleet-section-header">
               <h2>Choose Your Vehicle</h2>
-              <p>Browse our complete fleet of 9 vehicles — from economy sedans to luxury coaches.</p>
+              <p>Browse our complete fleet of 9 vehicles - from economy sedans to luxury coaches.</p>
             </div>
 
             <div className="fleet-vehicle-grid">

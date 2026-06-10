@@ -19,11 +19,12 @@ const VehicleCard = ({ vehicle, onViewDetails }) => {
       </div>
 
       <div className="vehicle-card-body">
-        <h3 className="vehicle-name">{vehicle.name}</h3>
-
-        <div className="vehicle-price">
-          <span className="price-amount">{vehicle.price}</span>
-          <span className="price-note">{vehicle.priceNote}</span>
+        <div className="vehicle-card-header">
+          <h3 className="vehicle-name">{vehicle.name}</h3>
+          <div className="vehicle-price">
+            <span className="price-amount">{vehicle.price}</span>
+            <span className="price-note">/ day</span>
+          </div>
         </div>
 
         <div className="vehicle-divider" />
@@ -48,7 +49,7 @@ const VehicleCard = ({ vehicle, onViewDetails }) => {
           ))}
         </ul>
 
-        <p className="vehicle-suitable">{vehicle.suitableFor}</p>
+        <p className="vehicle-description">{vehicle.description}</p>
 
         <div className="vehicle-actions">
           <button

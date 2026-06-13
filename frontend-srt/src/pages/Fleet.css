@@ -74,6 +74,7 @@
 .new-hero-content {
   max-width: 42rem;
   color: white;
+  margin-top: 90px;
 }
 
 .new-hero-content h1 {
